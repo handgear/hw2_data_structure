@@ -51,7 +51,7 @@ private:
 public:
     Search();
     ~Search();
-    void insertHistory(string keyword, string webpage, string info, string date, int hits);
+    void insertHistory(ListElementType &newHistory);
 //    void printHistory(int index);
     void printAllHistory();
 //    int searchKeyInfoField(string hintWord);

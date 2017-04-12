@@ -28,20 +28,17 @@ Search::~Search()
     }
 }
 
-void Search::insertHistory(string keyword, string webpage, string info, string date, int hits)
+void Search::insertHistory(ListElementType &newHistory)
 {
     // precondition: list is in order
     Link addedNode(new Node);
     assert(addedNode);
-    addedNode->history.keyWord = keyword; //데이터 적기
-    addedNode->history.finalWebPage = webpage;
-    addedNode->history.information = info;
-    addedNode->history.date = date;
-    addedNode->history.hits = hits;
+    addedNode->history = newHistory;
+
     // Special case: if the existing list is empty, or if the new data
     // is less than the smallest item in the list, the new node is added
     // to the front of the list
-    if (head == 0 || hits <= head->history.hits) { //최초로 넣는 경우, 내가 가장 작을 떄
+    if (head == 0 || newHistory.hits <= head->history.hits) { //최초로 넣는 경우, 내가 가장 작을 떄
         addedNode->next = head;
         head = addedNode;
     }
