@@ -21,6 +21,16 @@ struct History{
     string information;
     string date;
     int hits;
+    
+    History& operator=(const History& a)
+    {
+        keyWord = a.keyWord;
+        finalWebPage = a.finalWebPage;
+        information = a.information;
+        date = a.date;
+        hits = a.hits;
+        return *this;
+    }
 };
 typedef History ListElementType;
 
