@@ -63,7 +63,8 @@ void Search::insertHistory(string keyword, string webpage, string info, string d
     // postcondition: list is in order, with elem added in proper position
 }
 
-void Search::printAllHistory(){
+void Search::printAllHistory()
+{
     int index = 0;
     current = head;
     

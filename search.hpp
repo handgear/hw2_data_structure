@@ -15,7 +15,8 @@
 
 using namespace std;
 
-struct History{
+struct History
+{
     string keyWord;
     string finalWebPage;
     string information;
@@ -34,7 +35,8 @@ struct History{
 };
 typedef History ListElementType;
 
-class Search{
+class Search
+{
 private:
     struct Node; // declaration without definition
     typedef Node *Link; // use declaration of Node

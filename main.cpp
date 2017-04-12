@@ -9,7 +9,8 @@
 #include <iostream>
 #include "search.hpp"
 
-int main(int argc, const char * argv[]) {
+int main(int argc, const char * argv[])
+{
    
     Search search;
     
