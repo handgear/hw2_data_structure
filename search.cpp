@@ -79,6 +79,20 @@ void Search::printAllHistory()
     }
 }
 
+bool Search::first(ListElementType &history)
+{
+    // After calling first, current points to first item in list
+    assert(head); // if no head, something is very wrong!
+    
+    if (head->next == 0)
+        return false;
+    else {
+        current = head->next;
+        history = current->history;
+        return true;
+    }
+}
+
 
 
 
