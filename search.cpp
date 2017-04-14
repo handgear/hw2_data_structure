@@ -55,6 +55,15 @@ void Search::insertHistory(ListElementType &newHistory)
     // postcondition: list is in order, with elem added in proper position
 }
 
+void Search::printHistory(ListElementType &history){
+    cout << "=====Print one history=====" << endl;
+    cout << "-Keyword: " << history.keyWord \
+    << "\n-Final webpage: " << history.finalWebPage \
+    << "\n-Information: " << history.information \
+    << "\n-Date: " << history.date \
+    << "\n-Hits: " << history.hits << endl;
+}
+
 void Search::printAllHistory()
 {
     assert(head); // if no head, something is very wrong!

@@ -53,6 +53,7 @@ public:
     ~Search();
     void insertHistory(ListElementType &newHistory);
 //    void printHistory(int index);
+    void printHistory(ListElementType &history);
     void printAllHistory();
     bool first(ListElementType &history);
 //    int searchKeyInfoField(string hintWord);
