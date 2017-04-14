@@ -21,8 +21,14 @@ int main(int argc, const char * argv[])
     search.insertHistory(data2);
     search.insertHistory(data3);
     
-    search.printAllHistory();
+    History first_history, last_history;
+//    search.printAllHistory();
+    search.first(first_history);
     
+    search.last(last_history);
+    
+    search.printHistory(first_history);
+    search.printHistory(last_history);
     
     return 0;
 }

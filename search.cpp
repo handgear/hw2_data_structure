@@ -17,7 +17,7 @@ Search::Search()
     head = new Node;
     assert(head);
     head->next = 0;
-    tail = 0;
+    tail = head;
     current = 0;
 }
 Search::~Search()
@@ -42,11 +42,16 @@ void Search::insertHistory(ListElementType &newHistory)
     // to the new node in the in-order list
     Link pred(head);
     // assertion: pred->elem <= addedNode->elem
-    while (pred->next != 0 && pred->next->history.hits <= addedNode->history.hits)
+    while (pred->next != 0 && pred->next->history.hits <= addedNode->history.hits){
         // loop invariant: pred->next != 0 && pred->next->elem <= elem
         pred = pred->next;
-    // assertion 7-1: (pred->elem <= addedNode->elem) &&
-    //    (addedNode->elem <= pred->next->elem || pred->next == 0) //pred가 새로운것 보다 작은지, 까지 도달했는지
+        // assertion 7-1: (pred->elem <= addedNode->elem) &&
+        //    (addedNode->elem <= pred->next->elem || pred->next == 0) //pred가 새로운것 보다 작은지, 까지 도달했는지
+    }
+    
+    if(pred == tail){
+        tail = addedNode;
+    }
     addedNode->next = pred->next;
     pred->next = addedNode;
     // assertion: pred->elem <= pred->next->elem &&
@@ -96,12 +101,26 @@ bool Search::first(ListElementType &history)
     if (head->next == 0)
         return false;
     else {
-        current = head->next;
+        current = head->next; // copy head->next, because this list has dummy head
         history = current->history;
         return true;
     }
 }
 
+bool Search::last(ListElementType &history)
+{
+    // After calling last, current points to last item in list
+    assert(tail); // if no tail, something is very wrong!
+    
+    // tail->next != 0
+    if (0)
+        return false;
+    else {
+        current = tail;
+        history = current->history;
+        return true;
+    }
+}
 
 
 

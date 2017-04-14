@@ -56,6 +56,7 @@ public:
     void printHistory(ListElementType &history);
     void printAllHistory();
     bool first(ListElementType &history);
+    bool last(ListElementType &history);
 //    int searchKeyInfoField(string hintWord);
     //int search
     
