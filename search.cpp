@@ -42,11 +42,11 @@ void Search::insertHistory(ListElementType &newHistory)
     // to the new node in the in-order list
     Link pred(head);
     // assertion: pred->elem <= addedNode->elem
-    while (pred->next != 0 && pred->next->history.hits <= addedNode->history.hits){
-        // loop invariant: pred->next != 0 && pred->next->elem <= elem
+    while (pred->next != 0 && pred->next->history.hits >= addedNode->history.hits){
+        // loop invariant: pred->next != 0 && pred->next->elem >= elem
         pred = pred->next;
         // assertion 7-1: (pred->elem <= addedNode->elem) &&
-        //    (addedNode->elem <= pred->next->elem || pred->next == 0) //pred가 새로운것 보다 작은지, 까지 도달했는지
+        //    (addedNode->elem >= pred->next->elem || pred->next == 0) //pred가 새로운것 보다 큰지, 까지 도달했는지
     }
     
     if(pred == tail){
