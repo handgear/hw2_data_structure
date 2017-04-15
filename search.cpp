@@ -60,6 +60,14 @@ void Search::insertHistory(ListElementType &newHistory)
     // postcondition: list is in order, with elem added in proper position
 }
 
+void Search::printHistory(){
+    cout << "=====Print current history=====" << endl;
+    cout << "-Keyword: " << current->history.keyWord \
+    << "\n-Final webpage: " << current->history.finalWebPage \
+    << "\n-Information: " << current->history.information \
+    << "\n-Date: " << current->history.date \
+    << "\n-Hits: " << current->history.hits << endl;
+}
 void Search::printHistory(ListElementType &history){
     cout << "=====Print one history=====" << endl;
     cout << "-Keyword: " << history.keyWord \
@@ -122,6 +130,27 @@ bool Search::last(ListElementType &history)
     }
 }
 
+bool Search::find(string keyword){
+    assert(head); // if no head, something is very wrong!
+    current = head->next;
+    
+    if(current == 0){
+//        cout << "Empty List!" << endl;
+        return false;
+    }
+    
+    while(current != 0){
+        size_t found = current->history.keyWord.find(keyword);
+        if(found!=string::npos){
+            return true;
+        }
+        current = current->next;
+    }
+    
+//    cout << "No matching history" << endl;
+    // return false when current reach to end of list
+    return false;
+}
 
 
 

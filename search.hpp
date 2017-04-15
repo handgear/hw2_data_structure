@@ -11,7 +11,6 @@
 
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
@@ -52,13 +51,14 @@ public:
     Search();
     ~Search();
     void insertHistory(ListElementType &newHistory);
-//    void printHistory(int index);
+    
+    // print current node history
+    void printHistory();
     void printHistory(ListElementType &history);
     void printAllHistory();
     bool first(ListElementType &history);
     bool last(ListElementType &history);
-//    int searchKeyInfoField(string hintWord);
-    //int search
+    bool find(string keyword);
     
     
 };
