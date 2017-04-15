@@ -120,8 +120,7 @@ bool Search::last(ListElementType &history)
     // After calling last, current points to last item in list
     assert(tail); // if no tail, something is very wrong!
     
-    // tail->next != 0
-    if (0)
+    if (head->next == 0)
         return false;
     else {
         current = tail;
@@ -152,5 +151,23 @@ bool Search::find(string keyword){
     return false;
 }
 
+bool Search::deleteHistory(string keyword){
+    Link nodeToDel, pred = head;
+    bool findResult;
+    findResult = find(keyword);
+    
+    if(findResult == false)
+        return false;
+    
+    nodeToDel = current;
+    while(pred->next != nodeToDel){
+        pred = pred->next;
+    }
+    
+    pred->next = nodeToDel->next;
 
+    delete nodeToDel;
+    
+    return true;
+}
 

@@ -59,7 +59,7 @@ public:
     bool first(ListElementType &history);
     bool last(ListElementType &history);
     bool find(string keyword);
-    
+    bool deleteHistory(string keyword);
     
 };
 
