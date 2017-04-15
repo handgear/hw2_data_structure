@@ -60,6 +60,7 @@ public:
     bool last(ListElementType &history);
     bool find(string keyword);
     bool deleteHistory(string keyword);
+    void searchThenAdd(string keyword);
     
 };
 

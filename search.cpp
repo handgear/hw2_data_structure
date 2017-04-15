@@ -171,3 +171,28 @@ bool Search::deleteHistory(string keyword){
     return true;
 }
 
+void Search::searchThenAdd(string keyword){
+    History newHistory;
+    newHistory.keyWord = keyword;
+    newHistory.hits = 1;
+    
+    bool findResult;
+    
+    findResult = find(keyword);
+    if(findResult == true){
+        // Copy found node
+        newHistory = current->history;
+        // Increase hits
+        newHistory.hits = newHistory.hits + 1;
+        // Delete found node
+        deleteHistory(keyword);
+        // Insert found node
+        insertHistory(newHistory);
+    }
+    else{
+        //new info
+        //insert newHistory
+        insertHistory(newHistory);
+    }
+    
+}
