@@ -61,6 +61,8 @@ public:
     bool find(string keyword);
     bool deleteHistory(string keyword);
     void searchThenAdd(string keyword);
+    History popHistory();
+    void AddAll(Search listToAdd);
     
 };
 

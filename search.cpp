@@ -196,3 +196,18 @@ void Search::searchThenAdd(string keyword){
     }
     
 }
+
+History Search::popHistory(){
+    History historyToPop;
+    
+    // get first history in list
+    first(historyToPop);
+    
+    deleteHistory(historyToPop.keyWord);
+    
+    return historyToPop;
+}
+
+void Search::AddAll(Search listToAdd){
+    return;
+}
