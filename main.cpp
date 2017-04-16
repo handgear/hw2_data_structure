@@ -1,4 +1,4 @@
-//
+﻿//
 //  main.cpp
 //  hw2_data_structure
 //
@@ -7,6 +7,7 @@
 //
 
 #include <iostream>
+#include "stdio.h"
 #include "search.hpp"
 
 int main(int argc, const char * argv[])
@@ -58,6 +59,8 @@ int main(int argc, const char * argv[])
     cout << "=======search=======" << endl;
     search.printAllHistory();
     
+	getchar();
+
     return 0;
 }
 
