@@ -22,7 +22,7 @@ Search::Search()
 }
 Search::~Search()
 {
-    while(head !=0)
+    while(head->next !=0)
     {
         Link delNode = head;
         head = head->next;
@@ -209,5 +209,11 @@ History Search::popHistory(){
 }
 
 void Search::AddAll(Search listToAdd){
-    return;
+    
+    while(listToAdd.head->next != 0){
+        History historyToInsert;
+        historyToInsert = listToAdd.popHistory();
+        insertHistory(historyToInsert);
+    }
+
 }
