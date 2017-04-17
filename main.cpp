@@ -6,9 +6,13 @@
 //  Copyright © 2017 Kwon Kiyong. All rights reserved.
 //
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include <iostream>
 #include "stdio.h"
 #include "search.hpp"
+
+using namespace cv;
 
 int main(int argc, const char * argv[])
 {
@@ -60,6 +64,32 @@ int main(int argc, const char * argv[])
     search.printAllHistory();
     
 	getchar();
+
+
+	//===============================================//
+	Mat image;
+
+	image = imread("C:\\Users\\handgear\\Documents\\Visual Studio 2015\\Projects\\hw2_data_structure\\hw2_data_structure\\sample.jpg"); // Read the file
+
+		if (!image.data) // Check for invalid input
+
+		{
+
+			cout << "Could not open or find the image" << std::endl;
+
+			return -1;
+
+		}
+
+	namedWindow("Display window", WINDOW_AUTOSIZE);// Create a window for display.
+
+
+
+		imshow("Display window", image); // Show our image inside it.
+
+		waitKey(0);
+
+
 
     return 0;
 }
