@@ -21,6 +21,7 @@ struct History
     string information;
     string date;
     int hits;
+    string img;
     
     History& operator=(const History& a)
     {
@@ -29,6 +30,7 @@ struct History
         information = a.information;
         date = a.date;
         hits = a.hits;
+        img = a.img;
         return *this;
     }
 };
@@ -56,6 +58,7 @@ public:
     void printHistory();
     void printHistory(ListElementType &history);
     void printAllHistory();
+    int printWithImg();
     bool first(ListElementType &history);
     bool last(ListElementType &history);
     bool find(string keyword);

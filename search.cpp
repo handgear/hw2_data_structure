@@ -6,13 +6,16 @@
 //  Copyright © 2017 Kwon Kiyong. All rights reserved.
 //
 
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
 #include "search.hpp"
 #include <iostream>
 #include <string>
 #include "assert.h"
 
-Search::Search()
-{
+using namespace cv;
+
+Search::Search(){
     // Initialize an empty list
     head = new Node;
     assert(head);
@@ -20,8 +23,7 @@ Search::Search()
     tail = head;
     current = 0;
 }
-Search::~Search()
-{
+Search::~Search(){
     while(head->next !=0)
     {
         Link delNode = head;
@@ -30,8 +32,7 @@ Search::~Search()
     }
 }
 
-void Search::insertHistory(ListElementType &newHistory)
-{
+void Search::insertHistory(ListElementType &newHistory){
     // precondition: list is in order
     Link addedNode(new Node);
     assert(addedNode);
@@ -68,6 +69,7 @@ void Search::printHistory(){
     << "\n-Date: " << current->history.date \
     << "\n-Hits: " << current->history.hits << endl;
 }
+
 void Search::printHistory(ListElementType &history){
     cout << "=====Print one history=====" << endl;
     cout << "-Keyword: " << history.keyWord \
@@ -77,8 +79,7 @@ void Search::printHistory(ListElementType &history){
     << "\n-Hits: " << history.hits << endl;
 }
 
-void Search::printAllHistory()
-{
+void Search::printAllHistory(){
     assert(head); // if no head, something is very wrong!
     int index = 0;
     current = head->next;
@@ -101,8 +102,29 @@ void Search::printAllHistory()
     }
 }
 
-bool Search::first(ListElementType &history)
-{
+int Search::printWithImg(){
+    printHistory();
+
+    string imgPath;
+	imgPath = ".\\img\\" + current->history.img;
+
+    Mat image;
+	//cout << imgPath << endl;
+	//getchar();
+	
+    image = imread(imgPath);
+	if (!image.data){ // Check for invalid input
+		cout << "Could not open or find the image" << std::endl;
+		return -1;
+	}
+    namedWindow("Display window", WINDOW_AUTOSIZE);// Create a window for display.
+    imshow("Display window", image); // Show our image inside it.
+    waitKey(0);
+
+    return 0;
+}
+
+bool Search::first(ListElementType &history){
     // After calling first, current points to first item in list
     assert(head); // if no head, something is very wrong!
     
@@ -115,8 +137,7 @@ bool Search::first(ListElementType &history)
     }
 }
 
-bool Search::last(ListElementType &history)
-{
+bool Search::last(ListElementType &history){
     // After calling last, current points to last item in list
     assert(tail); // if no tail, something is very wrong!
     
