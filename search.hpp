@@ -66,6 +66,7 @@ public:
     void searchThenAdd(string keyword);
     History popHistory();
     void AddAll(Search listToAdd);
+    bool findAndShowImage(string keyword);
     
 };
 

@@ -238,3 +238,14 @@ void Search::AddAll(Search listToAdd){
     }
 
 }
+
+bool Search::findAndShowImage(string keyword){
+    if(find(keyword)){
+        printWithImg();
+        return true;
+    }
+    else{
+         //cout << "No matching history" << endl;
+        return false;
+    }
+}
